@@ -1,0 +1,17 @@
+syntax = "proto3";
+package chat;
+
+option go_package = "github.com/brewinski/grcp-learning/go-grpc/chat";
+
+message Message {
+  string body = 1;
+}
+
+message GetMessageRequest {
+  int32 id = 1;
+}
+
+service ChatService {
+    rpc SayHello(Message) returns (Message) {};
+    rpc ReadChatByID(GetMessageRequest) returns (Message) {};
+} 
